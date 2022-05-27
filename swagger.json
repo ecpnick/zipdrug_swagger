@@ -1,0 +1,249 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is an API endpoint for ZipDrug to send leads to ExactCare",
+    "version": "1.0.0",
+    "title": "ZipDruge send Lead",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "petstore.swagger.io",
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "Leads",
+      "description": "Endpoints to send Leads to ExactCare",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "https://staging-exactcare.cs225.force.com/lead/services/apexrest/v1/ZipDrugLeadApi/": {
+      "post": {
+        "tags": [
+          "Leads"
+        ],
+        "summary": "Send Lead",
+        "description": "send lead to ExactCare",
+        "operationId": "sendLead",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Patient object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Prescription": {
+      "type": "object",
+      "properties": {
+        "brand_name": {
+          "type": "string",
+          "example": "ZOLPIDEM TARTRATE ER"
+        },
+        "generic_name": {
+          "type": "string",
+          "example": "famotidine"
+        },
+        "days_supply": {
+          "type": "string",
+          "example": "90"
+        },
+        "ndc_code": {
+          "type": "string",
+          "example": "68180077901"
+        },
+        "provider": {
+          "type": "object",
+          "properties": {
+            "full_name": {
+              "type": "string",
+              "example": "John Doe"
+            },
+            "npi": {
+              "type": "string",
+              "example": "1234567890"
+            },
+            "phone_number": {
+              "type": "string",
+              "example": "14158064405"
+            }
+          }
+        },
+        "pharmacy": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "515678"
+            },
+            "npi": {
+              "type": "string",
+              "example": "9876543210"
+            },
+            "phone_number": {
+              "type": "string",
+              "example": "14158064405"
+            },
+            "address": {
+              "type": "object",
+              "properties": {
+                "line1": {
+                  "type": "string",
+                  "example": "123 main st"
+                },
+                "line2": {
+                  "type": "string",
+                  "example": "Apt 13q"
+                },
+                "city": {
+                  "type": "string",
+                  "example": "New York"
+                },
+                "postal_code": {
+                  "type": "string",
+                  "example": "08843"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "NY"
+                },
+                "note": {
+                  "type": "string",
+                  "example": "this is a note"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Lead": {
+      "type": "object",
+      "required": [
+        "patient_id"
+      ],
+      "properties": {
+        "patient_id": {
+          "type": "string",
+          "example": "1000130447"
+        },
+        "first_name": {
+          "type": "string",
+          "example": "John"
+        },
+        "last_name": {
+          "type": "string",
+          "example": "Smith"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "example": "01/12/1960"
+        },
+        "enroll_status": {
+          "type": "string",
+          "example": "interested"
+        },
+        "allergies": {
+          "type": "string",
+          "example": "peanut, soy, wheat"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "line1": {
+              "type": "string",
+              "example": "123 main st"
+            },
+            "line2": {
+              "type": "string",
+              "example": "Apt 13q"
+            },
+            "city": {
+              "type": "string",
+              "example": "New York"
+            },
+            "postal_code": {
+              "type": "string",
+              "example": "08843"
+            },
+            "state": {
+              "type": "string",
+              "example": "NY"
+            },
+            "note": {
+              "type": "string",
+              "example": "this is a note"
+            }
+          }
+        },
+        "prescriptions": {
+          "items": {
+            "$ref": "#/definitions/Prescription"
+          }
+        }
+      },
+      "xml": {
+        "name": "Lead"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
