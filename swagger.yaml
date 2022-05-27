@@ -42,10 +42,6 @@ paths:
       responses:
         "405":
           description: "Invalid input"
-      security:
-      - petstore_auth:
-        - "write:pets"
-        - "read:pets"
 securityDefinitions:
   petstore_auth:
     type: "oauth2"
