@@ -13,6 +13,7 @@
       window.onload = (event) => {
       window.ui = SwaggerUIBundle({
         url: "./swagger.yaml",
+        enableCORS: true,
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
