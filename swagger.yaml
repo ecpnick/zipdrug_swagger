@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   description: "This is an API endpoint for ZipDrug to send leads to ExactCare"
   version: "1.0.0"
-  title: "Send Web Lead to ExactCare"
+  title: "Web Leads to ExactCare"
   termsOfService: "http://swagger.io/terms/"
   contact:
     email: "nkopp@exactcarepharmacy.com"
@@ -24,7 +24,7 @@ paths:
   /v1/ZipDrugLeadApi/:
     post:
       tags:
-      - "Leads"
+      - "ZipDrug Leads"
       summary: "Send Lead"
       description: "send lead to ExactCare"
       operationId: "sendLead"
@@ -35,26 +35,130 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Patient object that needs to be added to the store"
+        description: "Patient object that needs sent to ExactCare"
         required: true
         schema:
           $ref: "#/definitions/Lead"
       responses:
         "405":
           description: "Invalid input"
-securityDefinitions:
-  petstore_auth:
-    type: "oauth2"
-    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
-    flow: "implicit"
-    scopes:
-      write:pets: "modify pets in your account"
-      read:pets: "read your pets"
-  api_key:
-    type: "apiKey"
-    name: "api_key"
-    in: "header"
+  /v1/LeadApi/:
+    post:
+      tags:
+      - "Web_Referrer"
+      summary: "Send Lead"
+      description: "send lead to ExactCare"
+      operationId: "sendWebLead"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Patient object that needs sent to ExactCare"
+        required: true
+        schema:
+          $ref: "#/definitions/Web_Referrer"
+      responses:
+        "405":
+          description: "Invalid input"
 definitions:
+  Lead_Details: 
+    type: "object"
+    properties: 
+      FirstName:
+        type: "string"
+        example: "John"
+      LastName:
+        type: "string"
+        example: "Smith"
+      Gender:
+        type: "string"
+        example: "male"
+      Date_of_Birth:
+        type: "string"
+      Medical_Record_Number:
+        type: "string"
+      SSN:
+        type: "string"
+      Phone: 
+        type: "string"
+        example: "1234567890"
+      MobilePhone:
+        type: "string"
+        example: "1230456789"
+      Street:
+        type: "string"
+      City: 
+        type: "string"
+      State:
+        type: "string"
+      PostalCode:
+        type: "string"
+      Email: 
+        type: "string"
+      Primary_Insurance_Id:
+        type: "string"
+      Status:
+        type: "string"
+      Discharge_Date:
+        type: "string"
+      Key_Instructions:
+        type: "string"
+      Batch_Status:
+        type: "string"
+      Scheduling_Portal_ID:
+        type: "string"
+      Scheduling_Portal_GUID:
+        type: "string"
+      Scheduling_Status:
+        type: "string"
+      Scheduled_Date_Time:
+        type: "string"
+      Preferred_Contact_Time:
+        type: "string"
+      Episode_Id:
+        type: "string"
+      Source_URL:
+        type: "string"
+      Patient_IP_Address:
+        type: "string"
+      Last_External_Communication:
+        type: "string"
+      Acquired_Date:
+        type: "string"
+        
+  Web_Referrer:
+    type: "object"
+    properties:
+      Referral_Source_System:
+        type: "string"
+      LeadSource:
+        type: "string"
+      RecordTypeId:
+        type: "string"
+      Referral_Source_Details:
+        type: "string"
+      List_Affiliate_Name:
+        type: "string"
+      External_Call_Center:
+        type: "string"
+      Web_Referrer_Source:
+        type: "string"
+      Web_Referrer_Company:
+        type: "string"
+      Web_Referrer_Name:
+        type: "string"
+      Web_Referrer_Phone:
+        type: "string"
+      Web_Referrer_Email:
+        type: "string"
+      Referrals:
+        type: "array"
+        items:
+          $ref: "#/definitions/Lead_Details"
+        
   Prescription:
         type: "object"
         properties: 
