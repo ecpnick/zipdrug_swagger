@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "This is an API endpoint for ZipDrug to send leads to ExactCare"
+  description: "API endpoints for partners to send leads to ExactCare staging enviornment"
   version: "1.0.0"
   title: "Web Leads to ExactCare"
   termsOfService: "http://swagger.io/terms/"
@@ -27,7 +27,7 @@ paths:
       - "ZipDrug Leads"
       summary: "Send Lead"
       description: "send lead to ExactCare"
-      operationId: "sendLead"
+      operationId: "ZipDrugLead"
       consumes:
       - "application/json"
       produces:
