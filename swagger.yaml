@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   description: "This is an API endpoint for ZipDrug to send leads to ExactCare"
   version: "1.0.0"
-  title: "ZipDruge send Lead"
+  title: "Send Web Lead to ExactCare"
   termsOfService: "http://swagger.io/terms/"
   contact:
     email: "nkopp@exactcarepharmacy.com"
