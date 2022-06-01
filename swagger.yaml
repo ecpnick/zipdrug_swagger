@@ -32,6 +32,8 @@ paths:
       - "application/json"
       produces:
       - "application/json"
+      header:
+      - "Access-Control-Allow-Origin"
       parameters:
       - in: "body"
         name: "body"
@@ -242,6 +244,9 @@ definitions:
       allergies:
         type: "string"
         example: "peanut, soy, wheat"
+      phone_number:
+        type: "string"
+        example: '7894561230'
       address:
         type: "object"
         properties:
