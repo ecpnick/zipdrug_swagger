@@ -9,7 +9,7 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "staging-exactcare.cs225.force.com"
+host: "exactcarepharmacy--staging.sandbox.my.salesforce-sites.com"
 basePath: "/lead/services/apexrest"
 tags:
 - name: "Leads"
@@ -187,7 +187,7 @@ definitions:
                 example: "1234567890"
               phone_number: 
                 type: "string"
-                example: "14158064405"
+                example: "1415806440"
           pharmacy: 
             type: "object"
             properties: 
@@ -199,7 +199,7 @@ definitions:
                 example: "9876543210"
               phone_number: 
                 type: "string"
-                example: "14158064405"
+                example: "1415806440"
               address: 
                 type: "object"
                 properties:
