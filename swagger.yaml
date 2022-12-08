@@ -44,6 +44,29 @@ paths:
       responses:
         "405":
           description: "Invalid input"
+  /v1/ZipDrugGapsApi:
+    post:
+      tags:
+        - "ZipDrug Gap in Care"
+      summary: "Send gap in care to ExactCare"
+      description: "Send gap in care to ExactCare from ZipDrug"
+      operationId: "ZipDrugGapInCare"
+      consumes: 
+        - "application/json"
+      produces:
+        - "applictaion/json"
+      header:
+        - "Access-Control-Allow-Origin"
+      parameters:
+        - in: "body"
+        name: "body"
+        description: "Gap in care information to be sent to ExactCare"
+        required: true
+        schema: 
+          $ref: "#/definitions/Gap_in_Care"
+        responses:
+          "405":
+            description: "Invalid input"
   /v1/LeadApi/:
     post:
       tags:
@@ -65,7 +88,21 @@ paths:
       responses:
         "405":
           description: "Invalid input"
+          
 definitions:
+  Gap_in_Care:
+    type: "object"
+      properties: 
+        patient_Id: 
+          type: "string"
+          example: "1000130555"
+        friendly_name: 
+          type: "string"
+          example: "Statin noncompliance >30d supply"
+        provider_message: 
+          type: "string"
+          example: "Claims as of [AAOD] suggest this patient fills a 30-day supply of ZOLPIDEM TARTRATE ER 31 MG but may be having difficulties maintaining a steady supply. Please confer with this patient about potential issues and contact their prescriber for a 90- or 100-day supply."
+
   Lead_Details: 
     type: "object"
     properties: 
