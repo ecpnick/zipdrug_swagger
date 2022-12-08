@@ -47,26 +47,26 @@ paths:
   /v1/ZipDrugGapsApi:
     post:
       tags:
-        - "ZipDrug Gap in Care"
+      - "ZipDrug Gap in Care"
       summary: "Send gap in care to ExactCare"
       description: "Send gap in care to ExactCare from ZipDrug"
       operationId: "ZipDrugGapInCare"
       consumes: 
-        - "application/json"
+      - "application/json"
       produces:
-        - "applictaion/json"
+      - "applictaion/json"
       header:
-        - "Access-Control-Allow-Origin"
+      - "Access-Control-Allow-Origin"
       parameters:
-        - in: "body"
-          name: "body"
-          description: "Gap in care information to be sent to ExactCare"
-          required: true
-          schema: 
-            $ref: "#/definitions/Gap_in_Care"
-        responses:
-          "405":
-            description: "Invalid input"
+      - in: "body"
+        name: "body"
+        description: "Gap in care information to be sent to ExactCare"
+        required: true
+        schema: 
+          $ref: "#/definitions/Gap_in_Care"
+      responses:
+        "405":
+          description: "Invalid input"
   /v1/LeadApi/:
     post:
       tags:
