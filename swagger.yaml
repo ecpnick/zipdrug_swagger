@@ -44,7 +44,7 @@ paths:
       responses:
         "405":
           description: "Invalid input"
-  /v1/ZipDrugGapsApi:
+  /v1/ZipDrugGapsApi/:
     post:
       tags:
       - "ZipDrug Gap in Care"
