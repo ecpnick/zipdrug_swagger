@@ -44,6 +44,10 @@ paths:
       responses:
         "405":
           description: "Invalid input"
+        "202":
+          description: "Lead is queued for creation with some exceptions"
+        "200":
+          description: "lead queued for creation"
   /v1/ZipDrugGapsApi/:
     post:
       tags:
@@ -67,6 +71,12 @@ paths:
       responses:
         "405":
           description: "Invalid input"
+        "500":
+          description: "List has no rows for assignment to SObject"
+        "200":
+          description: "Updated Referral"
+        "202":
+          description: "Insert failed. First exception on row0; first error: DUPLICATE_VALUE, Already a campaign member"
   /v1/LeadApi/:
     post:
       tags:
