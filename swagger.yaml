@@ -106,6 +106,15 @@ definitions:
       patient_Id: 
         type: "string"
         example: "1000130555"
+      careGapId:
+        type: "number"
+        example: 1
+      messageId:
+        type: "string"
+        example: "12"
+      outcomeMsgRuleId:
+        type: "string"
+        example: "13"
       friendly_name: 
         type: "string"
         example: "Statin noncompliance >30d supply"
