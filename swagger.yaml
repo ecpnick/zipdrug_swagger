@@ -9,7 +9,7 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "exactcarepharmacy--nksandbox.sandbox.my.salesforce-sites.com"
+host: "exactcarepharmacy--staging.sandbox.my.salesforce-sites.com"
 basePath: "/lead/services/apexrest"
 tags:
 - name: "Leads"
